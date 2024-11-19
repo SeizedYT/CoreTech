@@ -1,137 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-    <title>CoreTech | Login & Registration</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet" href="style.css">
+  <title>CORETECH</title>
+  <style>
+    /* Estilo general */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    /* Navegación */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #333;
+      padding: 10px 0;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Secciones */
+    main section {
+      height: 100vh;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    main section:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+
+    main section:nth-child(even) {
+      background-color: #eaeaea;
+    }
+
+    /* Botones */
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #333;
+      color: white;
+    }
+
+    /* Efecto de desplazamiento suave */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Sección de países */
+    .country-section {
+      padding: 50px 20px;
+    }
+
+    .country-section h2 {
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .countries {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 0;
+    }
+
+    .country {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .country img {
+      width: 30px;
+      height: 20px;
+      border-radius: 2px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .country:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
- <div class="wrapper">
-    <nav class="nav">
-        <div class="nav-logo">
-            <p>CORETECH.</p>
+  <!-- Encabezado -->
+  <header>
+    <h1>Welcome CoreTech</h1>
+    <button onclick="window.location.href='login-page.html'" style="position: absolute; top: 20px; right: 20px;">
+          Ir al Inicio
+        </button>
+  </header>
+
+  <!-- Navegación -->
+  <nav>
+    <ul>
+      <li><a href="#seccion1">Sección 1</a></li>
+      <li><a href="#seccion2">Sección 2</a></li>
+      <li><a href="#seccion3">Sección 3</a></li>
+      <li><a href="#seccion-paises">Seleccionar País</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main>
+    <section id="seccion1">
+      <h2>Sección 1</h2>
+      <p>Este es un párrafo en la primera sección.</p>
+      <button onclick="window.location.href='login-page.html'">Ir al Inicio</button>
+    </section>
+    <section id="seccion2">
+      <h2>Sección 2</h2>
+      <p>Este es un párrafo en la segunda sección.</p>
+    </section>
+    <section id="seccion3">
+      <h2>Sección 3</h2>
+      <p>Este es un párrafo en la tercera sección.</p>
+      <button id="miBoton">Haz clic aquí</button>
+    </section>
+    <section id="seccion-paises" class="country-section">
+      <h2>Choose Language</h2>
+      <div class="countries">
+        <div class="country">
+          <img src="https://flagcdn.com/w40/ar.png" alt="Argentina">
+          <span>Argentina Español</span>
         </div>
-        <div class="nav-menu" id="navMenu">
-            <ul>
-                <li><a href="#" class="link active">Home</a></li>
-                <li><a href="#" class="link">Blog</a></li>
-                <li><a href="#" class="link">Services</a></li>
-                <li><a href="#" class="link">About</a></li>
-            </ul>
+        <div class="country">
+          <img src="https://flagcdn.com/w40/br.png" alt="Brasil">
+          <span>Brasil Português</span>
         </div>
-        <div class="nav-button">
-            <button class="btn white-btn" id="loginBtn" onclick="login()">Sign In</button>
-            <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
+        <div class="country">
+          <img src="https://flagcdn.com/w40/co.png" alt="Colombia">
+          <span>Colombia Español</span>
         </div>
-        <div class="nav-menu-btn">
-            <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+        <div class="country">
+          <img src="https://flagcdn.com/w40/us.png" alt="Estados Unidos">
+          <span>United States English</span>
         </div>
-    </nav>
-<!----------------------------- Form box ----------------------------------->    
-    <div class="form-box">
-        
-        <!------------------- login form -------------------------->
-        <div class="login-container" id="login">
-            <div class="top">
-                <span>Don't have an account? <a href="#" onclick="register()">Sign Up</a></span>
-                <header>Login</header>
-            </div>
-            <div class="input-box">
-                <input type="text" class="input-field" placeholder="Username or Email">
-                <i class="bx bx-user"></i>
-            </div>
-            <div class="input-box">
-                <input type="password" class="input-field" placeholder="Password">
-                <i class="bx bx-lock-alt"></i>
-            </div>
-            <div class="input-box">
-                <input type="submit" class="submit" value="Sign In">
-            </div>
-            <div class="two-col">
-                <div class="one">
-                    <input type="checkbox" id="login-check">
-                    <label for="login-check"> Remember Me</label>
-                </div>
-                <div class="two">
-                    <label><a href="#">Forgot password?</a></label>
-                </div>
-            </div>
+        <div class="country">
+          <img src="https://flagcdn.com/w40/fr.png" alt="Francia">
+          <span>France Français</span>
         </div>
-        <!------------------- registration form -------------------------->
-        <div class="register-container" id="register">
-            <div class="top">
-                <span>Have an account? <a href="#" onclick="login()">Login</a></span>
-                <header>Sign Up</header>
-            </div>
-            <div class="two-forms">
-                <div class="input-box">
-                    <input type="text" class="input-field" placeholder="First name">
-                    <i class="bx bx-user"></i>
-                </div>
-                <div class="input-box">
-                    <input type="text" class="input-field" placeholder="Last name">
-                    <i class="bx bx-user"></i>
-                </div>
-            </div>
-            <div class="input-box">
-                <input type="text" class="input-field" placeholder="Email">
-                <i class="bx bx-envelope"></i>
-            </div>
-            <div class="input-box">
-                <input type="password" class="input-field" placeholder="Password">
-                <i class="bx bx-lock-alt"></i>
-            </div>
-            <div class="input-box">
-                <input type="submit" class="submit" value="Register">
-            </div>
-            <div class="two-col">
-                <div class="one">
-                    <input type="checkbox" id="register-check">
-                    <label for="register-check"> Remember Me</label>
-                </div>
-                <div class="two">
-                    <label><a href="#">Terms & conditions</a></label>
-                </div>
-            </div>
+        <div class="country">
+          <img src="https://flagcdn.com/w40/de.png" alt="Alemania">
+          <span>Deutschland Deutsch</span>
         </div>
-    </div>
-</div>   
-<script>
-   
-   function myMenuFunction() {
-    var i = document.getElementById("navMenu");
-    if(i.className === "nav-menu") {
-        i.className += " responsive";
-    } else {
-        i.className = "nav-menu";
-    }
-   }
- 
-</script>
-<script>
-    var a = document.getElementById("loginBtn");
-    var b = document.getElementById("registerBtn");
-    var x = document.getElementById("login");
-    var y = document.getElementById("register");
-    function login() {
-        x.style.left = "4px";
-        y.style.right = "-520px";
-        a.className += " white-btn";
-        b.className = "btn";
-        x.style.opacity = 1;
-        y.style.opacity = 0;
-    }
-    function register() {
-        x.style.left = "-510px";
-        y.style.right = "5px";
-        a.className = "btn";
-        b.className += " white-btn";
-        x.style.opacity = 0;
-        y.style.opacity = 1;
-    }
-</script>
+        <div class="country">
+          <img src="https://flagcdn.com/w40/mx.png" alt="México">
+          <span>México Español</span>
+        </div>
+        <div class="country">
+          <img src="https://flagcdn.com/w40/gb.png" alt="Reino Unido">
+          <span>United Kingdom English</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>© 2024 CoreTech</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    document.getElementById('miBoton').addEventListener('click', function() {
+      alert('¡Hola! Has hecho clic en el botón.');
+    });
+  </script>
 </body>
 </html>
