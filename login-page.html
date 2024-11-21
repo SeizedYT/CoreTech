@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>CoreTech | Login & Registration</title>
 </head>
 <body>
@@ -30,25 +31,27 @@
             <i class="bx bx-menu" onclick="myMenuFunction()"></i>
         </div>
     </nav>
-<!----------------------------- Form box ----------------------------------->    
+    <!----------------------------- Form box ----------------------------------->    
     <div class="form-box">
-        
-        <!------------------- login form -------------------------->
-        <div class="login-container" id="login">
+         <!------------------- login form -------------------------->
+         <div class="login-container" id="login">
             <div class="top">
                 <span>Don't have an account? <a href="#" onclick="register()">Sign Up</a></span>
                 <header>Login</header>
             </div>
             <div class="input-box">
-                <input type="text" class="input-field" placeholder="Username or Email">
+                <input type="text" class="input-field" id="email" placeholder="Username or Email">
                 <i class="bx bx-user"></i>
+                <div id="error-message" style="color: red; font-size: 14px; display: none;"></div>
             </div>
             <div class="input-box">
                 <input type="password" class="input-field" placeholder="Password">
                 <i class="bx bx-lock-alt"></i>
             </div>
+            <!-- Botón que redirige a index.html -->
             <div class="input-box">
-                <input type="submit" class="submit" value="Sign In">
+                <input type="button" class="submit" value="Sign In" onclick="login();" onclick="window.location.href='index.html';">
+                
             </div>
             <div class="two-col">
                 <div class="one">
@@ -60,6 +63,7 @@
                 </div>
             </div>
         </div>
+        
         <!------------------- registration form -------------------------->
         <div class="register-container" id="register">
             <div class="top">
@@ -84,8 +88,9 @@
                 <input type="password" class="input-field" placeholder="Password">
                 <i class="bx bx-lock-alt"></i>
             </div>
+            <!-- Botón que redirige a index.html -->
             <div class="input-box">
-                <input type="submit" class="submit" value="Register">
+                <input type="button" class="submit" value="Register" onclick="window.location.href='index.html';">
             </div>
             <div class="two-col">
                 <div class="one">
@@ -97,8 +102,31 @@
                 </div>
             </div>
         </div>
+        
     </div>
 </div>   
+<nav class="nav">
+    <div class="nav-logo">
+        <a href="index.html" style ="text-decoration: none; color: inherit;">
+        <p>CORETECH.</p>
+        </a>
+    </div>
+    <div class="nav-menu" id="navMenu">
+        <ul>
+            <li><a href="index.html" class="link active">Home</a></li>
+            <li><a href="#" class="link">Blog</a></li>
+            <li><a href="#" class="link">Services</a></li>
+            <li><a href="#" class="link">About</a></li>
+        </ul>
+    </div>
+    <div class="nav-button">
+        <button class="btn white-btn" id="loginBtn" onclick="login()">Sign In</button>
+        <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
+    </div>
+    <div class="nav-menu-btn">
+        <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+    </div>
+</nav>
 <script>
    
    function myMenuFunction() {
@@ -131,6 +159,40 @@
         b.className += " white-btn";
         x.style.opacity = 0;
         y.style.opacity = 1;
+    }
+</script>
+<script>
+    
+    var loginBtn = document.getElementById("loginBtn");
+    var registerBtn = document.getElementById("registerBtn");
+    var loginForm = document.getElementById("login");
+    var registerForm = document.getElementById("register");
+
+    function login() {
+        loginForm.style.left = "4px";
+        registerForm.style.right = "-520px";
+        loginBtn.className += " white-btn";
+        registerBtn.className = "btn";
+        loginForm.style.opacity = 1;
+        registerForm.style.opacity = 0;
+    }
+
+    function register() {
+        loginForm.style.left = "-510px";
+        registerForm.style.right = "5px";
+        loginBtn.className = "btn";
+        registerBtn.className += " white-btn";
+        loginForm.style.opacity = 0;
+        registerForm.style.opacity = 1;
+    }
+
+    function myMenuFunction() {
+        var navMenu = document.getElementById("navMenu");
+        if (navMenu.className === "nav-menu") {
+            navMenu.className += " responsive";
+        } else {
+            navMenu.className = "nav-menu";
+        }
     }
 </script>
 </body>
